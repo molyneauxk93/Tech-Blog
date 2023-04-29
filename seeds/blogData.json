@@ -1,0 +1,14 @@
+[
+    {
+        "title": "First Blog Post!",
+        "content": "Hello everyone, glad to be here"
+    },
+    {
+        "title": "Help me understand MVC",
+        "content": "Someone please help!"
+    },
+    {
+        "title": "Help me with my query JOINS",
+        "content": "My Left JOIN wont work with my INNER JOINS"
+    }
+]
