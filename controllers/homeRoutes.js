@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, Blog, User } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //route to tech blog home page where all comments on the tech blog can be seen by all users, whether logged in or not 
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         const blogData = await Blog.findAll();
 
         //serealizing data to be read by template
-        const blogPosts = blogData.map((blog) => project.get({ plain: true }));
+        const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
 
         res.render('homepage', {
             blogPosts,
@@ -47,3 +47,5 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
+
+module.exports = router;

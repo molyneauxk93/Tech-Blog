@@ -1,14 +1,17 @@
 [
     {
         "title": "First Blog Post!",
-        "content": "Hello everyone, glad to be here"
+        "content": "Hello everyone, glad to be here",
+        "user_id": 1
     },
     {
         "title": "Help me understand MVC",
-        "content": "Someone please help!"
+        "content": "Someone please help!",
+        "user_id": 2
     },
     {
         "title": "Help me with my query JOINS",
-        "content": "My Left JOIN wont work with my INNER JOINS"
+        "content": "My Left JOIN wont work with my INNER JOINS",
+        "user_id": 3
     }
 ]

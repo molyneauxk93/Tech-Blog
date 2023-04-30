@@ -1,14 +1,17 @@
 [
   {
     "comment": "Hello my name is Josh",
+    "blog_id": 2, 
     "user_id": 1
   },
   {
     "comment": "Hello my name is Rob",
+    "blog_id": 1, 
     "user_id": 2
   },
   {
     "comment": "Hello my name is Tanjiro",
+    "blog_id": 1, 
     "user_id": 3
   }
 ]
