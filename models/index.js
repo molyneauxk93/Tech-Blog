@@ -10,7 +10,7 @@ Blog.belongsTo(User, {
 //user can have many comments 
 Blog.hasMany(Comment, {
     foreignKey: 'blogId',
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
 });
 
 //comment belongs to a user

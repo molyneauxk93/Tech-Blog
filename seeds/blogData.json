@@ -2,16 +2,16 @@
     {
         "title": "First Blog Post!",
         "content": "Hello everyone, glad to be here",
-        "user_id": 1
+        "userId": 1
     },
     {
         "title": "Help me understand MVC",
         "content": "Someone please help!",
-        "user_id": 2
+        "userId": 2
     },
     {
         "title": "Help me with my query JOINS",
         "content": "My Left JOIN wont work with my INNER JOINS",
-        "user_id": 3
+        "userId": 3
     }
 ]
