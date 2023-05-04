@@ -1,15 +1,31 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 //route to tech blog home page where all comments on the tech blog can be seen by all users, whether logged in or not 
 router.get('/', async (req, res) => {
     try {
         //Get all blog posts 
-        const blogData = await Blog.findAll();
+        const blogData = await Blog.findAll({
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['comment'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+        });
 
         //serealizing data to be read by template
         const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
+        console.log(blogPosts[0].comments);
 
         res.render('homepage', {
             blogPosts,

@@ -1,11 +1,22 @@
 <!-- Loop over each object in the projects array -->
 {{#each blogPosts as |blogpost| }}
-<div class="row mb-4 project">
-    <div class="col-md-5">
-        <h2>   
-            <a href="/project/{{blogpost.id}}">{{blogpost.title}}</a>
-        </h2>
-
-    </div>
-</div>
+<details>
+    <summary>
+        {{blogpost.title}}
+        {{!-- <span class="icon">👇</span> --}}
+    </summary>
+    <p>{{blogpost.content}}</p>
+    <strong><p>Comments:</p></strong>
+    {{#each blogpost.comments as |comment|}}
+    <p>{{comment.comment}} Created by: {{comment.user.username}}</p>
+    {{/each}}
+<p>Blog Posted By: {{blogpost.user.username}}</p>
+{{#if logged_in}}
+<form>
+    <p>Leave a Comment: </p>
+    <input type="text" name="comment">
+    <input type="submit">
+</form>
+{{/if}}
+</details>
 {{/each}}
