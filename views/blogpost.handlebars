@@ -1,0 +1,23 @@
+<div class="comment-post">
+<details>
+    <summary>
+        {{selectPost.title}}
+        {{!-- <span class="icon">👇</span> --}}
+    </summary>
+    <p>{{selectPost.content}}</p>
+    <strong><p>Comments:</p></strong>
+    {{#each selectPost.comments as |comment|}}
+    <p>{{comment.comment}} Created by: {{comment.user.username}}</p>
+    {{/each}}
+<p>Blog Posted By: {{selectPost.user.username}}</p>
+
+<form>
+    <p>Leave a Comment: </p>
+    <input type="text" name="comment" id="post-comment">
+    <input type="submit">
+</form>
+
+</details>
+</div>
+
+<script src="/js/addcomment.js"></script>

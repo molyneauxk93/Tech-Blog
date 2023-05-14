@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             blogPosts,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in 
         });
     } catch (err) {
         res.status(500).json(err);
@@ -39,8 +39,44 @@ router.get('/', async (req, res) => {
 //render user blog posts to the dashboard when the user is logged in
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userData = await Blog.findByPk(req.session.user_id, {
+        const userData = await Blog.findAll({
+            where: {
+                user_id: req.session.user_id,
+            },
+        });
+
+        if (!userData) {
+            res.redirect('/login');
+            return;
+        }
+
+        console.log(userData)
+        //serialize 
+        const userResults = userData.map((dash) => dash.get({ plain: true }));
+        console.log(userData)
+
+        res.render('dashboard', {
+            userResults,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+//open individual blog post by id 
+router.get('/dashboard/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Blog.findByPk(req.params.id, {
             include: [
+                {
+                    model: Comment,
+                    attributes: ['comment'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    }
+                },
                 {
                     model: User,
                     attributes: ['username']
@@ -48,26 +84,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
             ],
         });
 
-        if(!userData) {
-            res.redirect('/login');
-            return;
-        }
+        const selectPost = postData.get({ plain: true });
+        console.log(selectPost);
 
-        
-        //serialize 
-        const userResults = userData.get({ plain: true });
-        console.log(userResults)
-
-        res.render('dashboard', { 
-            userResults, 
+        res.render('blogpost', {
+            selectPost,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 
 
-//load blog page 
+//load blog page for new blog post 
 router.get('/blog', (req, res) => {
     //if the user is logged in redirect to their user dashboard
     if (!req.session.logged_in) {
