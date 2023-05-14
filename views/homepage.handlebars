@@ -2,8 +2,13 @@
 {{#each blogPosts as |blogpost| }}
 
 <div>
+    <details>
 
-    <a href="/dashboard/{{blogpost.id}}">{{blogpost.title}}</a>
+        <summary>
+            <a href="/dashboard/{{blogpost.id}}">{{blogpost.title}}</a>
+        </summary>
+        <p>{{blogpost.content}}</p>
+    </details>
 
 </div>
 
