@@ -12,7 +12,7 @@ const newCommentHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace(`/blog/${id}`);
         } else {
             alert(response.statusText);
         }
