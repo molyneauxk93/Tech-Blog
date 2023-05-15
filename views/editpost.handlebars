@@ -1,0 +1,26 @@
+<div class="row update-post">
+    <div class="col-md-6">
+        <h2>Add a new Blog Post!</h2>
+
+        <form class="form post-form">
+            <div class="form-group">
+                <label for="blog-title">Title:</label>
+                <input class="form-input" type="text" id="edit-title" placeholder="{{selectPost.title}}" />
+            </div>
+            <div class="form-group">
+                <label for="blog-content">Content:</label>
+                <input class="form-input" type="text" id="edit-content" placeholder="{{selectPost.content}}" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" id="update-button" value="{{selectPost.id}}">Update Post</button>
+            </div>
+        </form>
+    </div>
+    <form class="form delete-post">
+        <div class="form-group col-md-6">
+            <button id="delete-blog" value="{{selectPost.id}}">Delete Post</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/updatepost.js"></script>

@@ -96,6 +96,39 @@ router.get('/blog/:id', withAuth, async (req, res) => {
     }
 });
 
+// route to render edit post handlebar for editing of personal blog posts
+router.get('/dashboard/:id', withAuth, async (req,res)=> {
+
+    try {
+        const postData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['comment'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+        });
+
+        const selectPost = postData.get({ plain: true });
+        console.log(selectPost);
+
+        res.render('editpost', {
+            selectPost,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 //load blog page for new blog post 
 router.get('/blog', (req, res) => {
