@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
         //serealizing data to be read by template
         const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
-        console.log(blogPosts[0].comments);
+        // console.log(blogPosts);
 
         res.render('homepage', {
             blogPosts,
@@ -53,7 +53,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         console.log(userData)
         //serialize 
         const userResults = userData.map((dash) => dash.get({ plain: true }));
-        console.log(userData)
+        // console.log(userData)
 
         res.render('dashboard', {
             userResults,
@@ -65,7 +65,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 //open individual blog post by id 
-router.get('/dashboard/:id', withAuth, async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
     try {
         const postData = await Blog.findByPk(req.params.id, {
             include: [
