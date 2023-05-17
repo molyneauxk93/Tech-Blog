@@ -49,4 +49,4 @@ The following image shows the update / delete post page where users can update c
 
 The following image shows the page of a single blog posts which opens up when you click on the title of a blog posts on the homepage. This pages shows user comments which are hidden on the homepage, as well as giving you the option to add a comment of your own to a users blog post: 
 
-![alt text](public/images/singleblogpost.jpg)
+![alt text](public/images/singleblogposts.jpg)
