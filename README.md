@@ -4,7 +4,7 @@
 
 Created a Tech Blog where users can view blog posts made by other users and participate in the community by signing up for the blog, so that they can create their own blog posts as well as comment on other users blog posts. 
 
-Published website:  
+Published website:  https://guarded-bastion-01373.herokuapp.com/
 
 ## Installation
 
