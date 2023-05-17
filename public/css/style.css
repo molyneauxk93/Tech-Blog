@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(197, 172, 124);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    color: rgb(121, 7, 7);
+}
+
+a {
+    color: rgb(121, 7, 7);
+}
+
+header {
+    background-color: rgb(53, 136, 156);
+}
+
+.container {
+    font-weight: bold;
+    padding: 10px;
+    border-style: solid;
+}
+
+details {
+    padding: 10px;
+    margin: 10px;
+}
+
+summary {
+    font-size: 25px;
+    color: rgb(121, 7, 7);
+    border-style: solid;
+    border-color: rgb(53, 136, 156);
+}
+
+p {
+    font-size: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.no-button {
+    background-color: rgb(53, 136, 156);
+    border-style: none;
+    color: rgb(121, 7, 7);
+}
+
+#submit-btn {
+    background-color: rgb(53, 136, 156);
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 2px;
+}
+
+#post-comment {
+    margin-left: 25px;
+}
+
+#blog-comment {
+    background-color: rgb(187, 105, 105);
+    width: 50%;
+}
+
+#posted-by {
+    color: rgb(121, 7, 7);
+    text-align: right;
+    font-size: 25px;
+}
+
+#comment-section {
+    margin-top: 25px;
+    color: rgb(121, 7, 7);
+}
+
+#post-body {
+    font-size: 30px;
+    font-style: italic;
+}
+
+input {
+    height: 30px;
+}
+
+#delete-blog {
+    background-color: rgb(121, 7, 7);
+    color:white;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 2px;
+}

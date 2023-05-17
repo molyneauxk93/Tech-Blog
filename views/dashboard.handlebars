@@ -1,13 +1,14 @@
 <!-- Loop over each object in the projects array -->
+<h2>Blog Posts</h2>
 {{#each userResults as |results|}}
 <details>
-
+    
     <summary>
         <a href="/dashboard/{{results.id}}">{{results.title}}</a>
         {{!-- <span class="icon">👇</span> --}}
     </summary>
-    <p>{{results.content}}</p>
+    <p id="post-body">{{results.content}}</p>
 
 </details>
 {{/each}}
-<button onclick="window.location.href='/blog'">New Blog Post</button>
+<button onclick="window.location.href='/blog'" id="submit-btn">New Blog Post</button>

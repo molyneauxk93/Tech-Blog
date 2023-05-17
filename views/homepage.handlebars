@@ -1,4 +1,5 @@
 <!-- Loop over each object in the projects array -->
+<h2>Blog Posts</h2>
 {{#each blogPosts as |blogpost| }}
 
 <div>
@@ -7,7 +8,7 @@
         <summary>
             <a href="/blog/{{blogpost.id}}">{{blogpost.title}}</a>
         </summary>
-        <p>{{blogpost.content}}</p>
+        <p id="post-body">{{blogpost.content}}</p>
     </details>
 
 </div>
