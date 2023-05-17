@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['comment'],
+                    attributes: ['comment', 'date_created'],
                     include: {
                         model: User,
                         attributes: ['username'],
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
         //serealizing data to be read by template
         const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
-        // console.log(blogPosts);
+        console.log(blogPosts);
 
         res.render('homepage', {
             blogPosts,
@@ -71,7 +71,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    attributes: ['comment'],
+                    attributes: ['comment', 'date_created'],
                     include: {
                         model: User,
                         attributes: ['username'],
@@ -104,7 +104,7 @@ router.get('/dashboard/:id', withAuth, async (req,res)=> {
             include: [
                 {
                     model: Comment,
-                    attributes: ['comment'],
+                    attributes: ['comment', 'date_created'],
                     include: {
                         model: User,
                         attributes: ['username'],

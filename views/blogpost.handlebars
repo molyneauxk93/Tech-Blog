@@ -1,7 +1,7 @@
 <div class="comment-post">
     <details>
         <summary>
-            {{selectPost.title}}
+            {{selectPost.title}} - {{format_date selectPost.date_created}}
             {{!-- <span class="icon">👇</span> --}}
         </summary>
         <p id="post-body">{{selectPost.content}}</p>
@@ -9,7 +9,7 @@
             <p>Comments:</p>
         </strong>
         {{#each selectPost.comments as |comment|}}
-        <p id="blog-comment">{{comment.comment}} </br> - Created by: {{comment.user.username}}</p>
+        <p id="blog-comment">{{comment.comment}} </br> - Created by: {{comment.user.username}} {{format_date comment.date_created}}</p>
         {{/each}}
         <p id="posted-by">Blog Posted By: {{selectPost.user.username}}</p>
 
