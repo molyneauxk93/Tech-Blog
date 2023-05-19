@@ -38,13 +38,13 @@ router.get('/', async (req, res) => {
 
 //render user blog posts to the dashboard when the user is logged in
 router.get('/dashboard', withAuth, async (req, res) => {
-    try {
+    try { //find all blog posts user created by their id 
         const userData = await Blog.findAll({
             where: {
                 user_id: req.session.user_id,
             },
         });
-
+        //redirect if user is not logged in 
         if (!userData) {
             res.redirect('/login');
             return;
@@ -66,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 //open individual blog post by id 
 router.get('/blog/:id', withAuth, async (req, res) => {
-    try {
+    try { //find blog post by its blog id to load a page with just the blog post including comments and other user data
         const postData = await Blog.findByPk(req.params.id, {
             include: [
                 {
@@ -98,7 +98,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
 
 // route to render edit post handlebar for editing of personal blog posts
 router.get('/dashboard/:id', withAuth, async (req,res)=> {
-
+    //find individual blog post selected on user dashboard and renders its details to be updated 
     try {
         const postData = await Blog.findByPk(req.params.id, {
             include: [

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//route used to save new blog posts 
 router.post('/', withAuth, async (req, res) => {
     try {
         const newBlog = await Blog.create({
@@ -15,9 +16,9 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-//update blog post 
+//update blog post route 
 router.put('/:id', withAuth, async (req, res) => {
-    try {
+    try { // runs update on blog post where the id matches the blog id of the post 
         const blogData = await Blog.update(req.body, {
             where: {
                 id: req.params.id,
@@ -31,7 +32,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
-    try {
+    try { // route finds and deletes specific blog post based on the id and the logged in user id 
         const blogData = await Blog.destroy({
             where: {
                 id: req.params.id,

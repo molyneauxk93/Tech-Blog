@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//created new user based on details submitted during sign up
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,9 +17,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+//route to log a user into the tech blog based on their credentials entered 
 router.post('/login', async (req, res) => {
   try {
+    //verify the username is valid 
     const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
@@ -28,6 +30,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    //verify password is valid in database 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -49,6 +52,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//route to detroy cookie stored log in information if user wants to log out 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

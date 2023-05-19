@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//route to add comment to specific blog post based on the id 
 router.post('/:id', withAuth, async (req, res) => {
     try {
         const newComment = await Comment.create({
@@ -16,6 +17,7 @@ router.post('/:id', withAuth, async (req, res) => {
     }
 });
 
+// comment delete route not used due to acceptance criteria 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.destroy({
@@ -26,7 +28,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         });
 
         if (!commentData) {
-            res.status(404).json({ message: 'No project found with this id!' });
+            res.status(404).json({ message: 'No comment found with this id!' });
             return;
         }
 

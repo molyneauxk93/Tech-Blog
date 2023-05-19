@@ -1,3 +1,5 @@
+//used to re format the date_created columns from the database in an easier to read format. 
+
 module.exports = {
   format_date: (date) => {
     // Format date as MM/DD/YYYY
